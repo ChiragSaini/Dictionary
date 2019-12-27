@@ -1,0 +1,23 @@
+{% extends "base.html"%}
+
+{% block content %}
+    <h1>Welcome to My Dictionary:</h1>
+    {% for msg in get_flashed_messages()%}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Meaning: </strong> {{msg}}.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    <form  method="post">
+        {{form.hidden_tag()}}
+        {{form.word.label}} {{ form.word}}
+        {{form.submit()}}
+    </form>
+    <br>
+    Initially there will be meaning of Life, then find some more meanings.
+    <br>
+    <h1>Result : {{result}}</h1>
+
+{% endblock %}
